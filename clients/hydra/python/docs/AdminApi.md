@@ -1575,6 +1575,7 @@ This endpoint lists all subject's granted consent sessions, including client and
 
 ### Example
 
+* Basic Authentication (basic):
 ```python
 from __future__ import print_function
 import time
@@ -1587,9 +1588,69 @@ configuration = ory_hydra_client.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basic
+configuration = ory_hydra_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with ory_hydra_client.ApiClient() as api_client:
+with ory_hydra_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ory_hydra_client.AdminApi(api_client)
+    subject = 'subject_example' # str | 
+
+    try:
+        # Lists all consent sessions of a subject
+        api_response = api_instance.list_subject_consent_sessions(subject)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AdminApi->list_subject_consent_sessions: %s\n" % e)
+```
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import ory_hydra_client
+from ory_hydra_client.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basic
+configuration = ory_hydra_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with ory_hydra_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ory_hydra_client.AdminApi(api_client)
     subject = 'subject_example' # str | 
@@ -1614,7 +1675,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2018,6 +2079,7 @@ This endpoint invalidates a subject's authentication session. After revoking the
 
 ### Example
 
+* Basic Authentication (basic):
 ```python
 from __future__ import print_function
 import time
@@ -2030,9 +2092,68 @@ configuration = ory_hydra_client.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basic
+configuration = ory_hydra_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with ory_hydra_client.ApiClient() as api_client:
+with ory_hydra_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ory_hydra_client.AdminApi(api_client)
+    subject = 'subject_example' # str | 
+
+    try:
+        # Invalidates all login sessions of a certain user Invalidates a subject's authentication session
+        api_instance.revoke_authentication_session(subject)
+    except ApiException as e:
+        print("Exception when calling AdminApi->revoke_authentication_session: %s\n" % e)
+```
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import ory_hydra_client
+from ory_hydra_client.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basic
+configuration = ory_hydra_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with ory_hydra_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ory_hydra_client.AdminApi(api_client)
     subject = 'subject_example' # str | 
@@ -2056,7 +2177,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -2082,6 +2203,7 @@ This endpoint revokes a subject's granted consent sessions for a specific OAuth 
 
 ### Example
 
+* Basic Authentication (basic):
 ```python
 from __future__ import print_function
 import time
@@ -2094,9 +2216,69 @@ configuration = ory_hydra_client.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basic
+configuration = ory_hydra_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with ory_hydra_client.ApiClient() as api_client:
+with ory_hydra_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ory_hydra_client.AdminApi(api_client)
+    subject = 'subject_example' # str | The subject (Subject) who's consent sessions should be deleted.
+client = 'client_example' # str | If set, deletes only those consent sessions by the Subject that have been granted to the specified OAuth 2.0 Client ID (optional)
+
+    try:
+        # Revokes consent sessions of a subject for a specific OAuth 2.0 Client
+        api_instance.revoke_consent_sessions(subject, client=client)
+    except ApiException as e:
+        print("Exception when calling AdminApi->revoke_consent_sessions: %s\n" % e)
+```
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import ory_hydra_client
+from ory_hydra_client.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basic
+configuration = ory_hydra_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with ory_hydra_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ory_hydra_client.AdminApi(api_client)
     subject = 'subject_example' # str | The subject (Subject) who's consent sessions should be deleted.
@@ -2122,7 +2304,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

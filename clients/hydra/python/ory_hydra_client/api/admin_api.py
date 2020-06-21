@@ -2339,7 +2339,7 @@ class AdminApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['basic', 'oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/oauth2/auth/sessions/consent', 'GET',
@@ -2923,7 +2923,7 @@ class AdminApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['basic', 'oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/oauth2/auth/sessions/login', 'DELETE',
@@ -3042,7 +3042,7 @@ class AdminApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['basic', 'oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/oauth2/auth/sessions/consent', 'DELETE',
