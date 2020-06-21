@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "v1.5.0-beta.5"
+__version__ = "1.5.1"
 
 # import apis into sdk package
 from ory_hydra_client.api.admin_api import AdminApi
