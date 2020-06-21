@@ -1025,6 +1025,14 @@
           "http",
           "https"
         ],
+        "security": [
+          {
+            "basic": []
+          },
+          {
+            "oauth2": []
+          }
+        ],
         "tags": [
           "admin"
         ],
@@ -1084,6 +1092,14 @@
         "schemes": [
           "http",
           "https"
+        ],
+        "security": [
+          {
+            "basic": []
+          },
+          {
+            "oauth2": []
+          }
         ],
         "tags": [
           "admin"
@@ -1145,6 +1161,14 @@
         "schemes": [
           "http",
           "https"
+        ],
+        "security": [
+          {
+            "basic": []
+          },
+          {
+            "oauth2": []
+          }
         ],
         "tags": [
           "admin"
