@@ -301,6 +301,7 @@ When a user or an application requests ORY Hydra to log out a user, this endpoin
 
 ### Example
 
+* Basic Authentication (basic):
 ```python
 from __future__ import print_function
 import time
@@ -313,9 +314,69 @@ configuration = ory_hydra_client.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basic
+configuration = ory_hydra_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with ory_hydra_client.ApiClient() as api_client:
+with ory_hydra_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ory_hydra_client.AdminApi(api_client)
+    logout_challenge = 'logout_challenge_example' # str | 
+
+    try:
+        # Accept a logout request
+        api_response = api_instance.accept_logout_request(logout_challenge)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AdminApi->accept_logout_request: %s\n" % e)
+```
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import ory_hydra_client
+from ory_hydra_client.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basic
+configuration = ory_hydra_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with ory_hydra_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ory_hydra_client.AdminApi(api_client)
     logout_challenge = 'logout_challenge_example' # str | 
@@ -340,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1137,6 +1198,7 @@ Use this endpoint to fetch a logout request.
 
 ### Example
 
+* Basic Authentication (basic):
 ```python
 from __future__ import print_function
 import time
@@ -1149,9 +1211,69 @@ configuration = ory_hydra_client.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basic
+configuration = ory_hydra_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with ory_hydra_client.ApiClient() as api_client:
+with ory_hydra_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ory_hydra_client.AdminApi(api_client)
+    logout_challenge = 'logout_challenge_example' # str | 
+
+    try:
+        # Get a logout request
+        api_response = api_instance.get_logout_request(logout_challenge)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AdminApi->get_logout_request: %s\n" % e)
+```
+
+* OAuth Authentication (oauth2):
+```python
+from __future__ import print_function
+import time
+import ory_hydra_client
+from ory_hydra_client.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basic
+configuration = ory_hydra_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = ory_hydra_client.Configuration(
+    host = "http://localhost"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with ory_hydra_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ory_hydra_client.AdminApi(api_client)
     logout_challenge = 'logout_challenge_example' # str | 
@@ -1176,7 +1298,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
